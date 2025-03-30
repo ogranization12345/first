@@ -2,15 +2,15 @@ import pandas as pd
 import re
 
 
-INPUT_NAME = "./pickles/eng_swapped_results_yandex_gpt_10000.pickle"
-OUTPUT_NAME = "eng_swapped_results_yandex_gpt_10000.csv"
+INPUT_NAME = "./pickles/eng_chain_of_thoughts_rawls_words_for_digits_results_yandex_gpt_4998.pickle"
+OUTPUT_NAME = "eng_chain_of_thoughts_rawls_words_for_digits_results_yandex_gpt_4998.csv"
 
 df = pd.read_pickle(INPUT_NAME)
 print(df)
 keywords = ["Case 1", "Case 2"]
 
 def response_classification(query):
-  text = query.lower()
+  text = query.lower()[:15]
 
   pattern_case1 = re.compile(r"case\s?1")
   pattern_case2 = re.compile(r"case\s?2")

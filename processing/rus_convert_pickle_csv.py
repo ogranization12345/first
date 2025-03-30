@@ -1,8 +1,8 @@
 import pandas as pd
 
 
-INPUT_NAME = "./pickles/ru_swapped_results_yandex_gpt_10000.pickle"
-OUTPUT_NAME = "ru_swapped_results_yandex_gpt_10000.csv"
+INPUT_NAME = "./pickles/ru_chain_of_thoughts_rawls_results_yandex_gpt_5000.pickle"
+OUTPUT_NAME = "ru_chain_of_thoughts_rawls_results_yandex_gpt_5000.csv"
 
 df = pd.read_pickle(INPUT_NAME)
 
@@ -12,7 +12,7 @@ def response_classification(query):
   label_seq = []
   if not query:
     return -1
-  text = query.lower()
+  text = query.lower()[:15]
   for key in keywords:
     if key.lower() in text:
       label_seq.append(1)
